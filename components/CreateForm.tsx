@@ -40,14 +40,59 @@ export const CreateForm = ({
       }}
     >
       <Row justify="center">
-        <Col>
-          <Input value={input} onChange={(e) => setInput(e.target.value)} />
+        <Col md={8}>
+          <input value={input} onChange={(e) => setInput(e.target.value)} />
         </Col>
 
         <Col>
-          <Button htmlType="submit">Add to Mix</Button>
+          <button type="submit">Add to Mix</button>
         </Col>
       </Row>
+      <style jsx>{`
+        input {
+          background-color: #f5f4f9;
+          border-radius: 8px;
+          border-width: 0;
+          color: #454d57;
+          cursor: text;
+          font-family: "Plex", -apple-system, Arial, Sans-Serif;
+          font-size: 14px;
+          line-height: 22px;
+          padding: 10px 12px 10px 32px;
+          transition: background-color 0.3s, width 0.05s;
+          width: 100%;
+        }
+        input:focus {
+          background-color: #edebf4;
+        }
+
+        input:-webkit-input-placeholder {
+          font-weight: 400;
+        }
+
+        input:placeholder {
+          font-weight: 400;
+        }
+
+        button {
+          background-color: #000;
+          border-radius: 8px;
+          border-width: 0;
+          box-shadow: rgba(0, 0, 0, 0.4) 0 10px 10px -10px;
+          color: #fff;
+          cursor: pointer;
+          font-family: "Plex", -apple-system, Arial, Sans-Serif;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          margin-left: 10px;
+          padding: 12px;
+          text-align: center;
+          text-transform: uppercase;
+          transition: all 250ms ease-out;
+          width: 100%;
+        }
+      `}</style>
     </form>
   );
 };
