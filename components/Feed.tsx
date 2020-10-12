@@ -1,21 +1,20 @@
-import { Card, Spin } from "antd";
-import { useFeed, useMe } from "./util/hooks";
+import { Card, Spin, Row, Col } from "antd";
+// import { useFeed, useMe } from "./util/hooks";
 import { DeleteButton } from "./DeleteButton";
-
-export const Feed = () => {
-  const { feed } = useFeed();
-  const { me } = useMe();
-
+import { useFeed } from "./useFeed";
+export const Feed = ({ feed }: { feed: any[] }) => {
   return feed ? (
-    <>
-      {feed.map(({ id, author, text }, i) => (
-        <Card key={i}>
-          {me && author.id === me.id && <DeleteButton id={id} feed={feed} />}
-          <h4>{text}</h4>
-          <span>{author.username}</span>
-        </Card>
+    <Row>
+      {feed.map(({ text }, i) => (
+        <Col md={4}>
+          <Card key={i}>
+            {/* <DeleteButton id={id}/> */}
+            <h4>{text}</h4>
+            {/* <span>{author.username}</span> */}
+          </Card>
+        </Col>
       ))}
-    </>
+    </Row>
   ) : (
     <Spin />
   );
